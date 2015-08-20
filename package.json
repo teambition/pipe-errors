@@ -1,0 +1,42 @@
+{
+  "name": "pipe-errors",
+  "description": "Handle errors on piping streams and pipe error to the end.",
+  "authors": [
+    "Yan Qing <admin@zensh.com>"
+  ],
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:teambition/pipe-errors.git"
+  },
+  "homepage": "https://github.com/teambition/pipe-errors",
+  "keywords": [
+    "pipe-errors",
+    "pipe",
+    "errors",
+    "stream"
+  ],
+  "engines": {
+    "node": ">=0.10.36"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.2",
+    "gulp-sequence": "^0.3.2",
+    "mocha": "^2.2.5",
+    "standard": "^5.1.0",
+    "through2": "^2.0.0",
+    "thunks": "^3.4.2"
+  },
+  "scripts": {
+    "test": "standard && gulp test"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "gulpfile.js"
+  ]
+}
