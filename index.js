@@ -12,9 +12,9 @@ var slice = Array.prototype.slice
 
 module.exports = function pipeErrors (streams) {
   streams = slice.call(arguments.length > 1 ? arguments : streams)
-  if (!streams.length) throw new Error('Streams required')
+  if (!streams.length) throw new Error('Stream required')
   for (var i = 0, l = streams.length - 1; i < l; i++) {
-    validateEventEmitter(streams[i]).on('error', listenError(streams[i + 1]))
+    validateEventEmitter(streams[i]).on('error', handleError(streams[i + 1]))
   }
   return validateEventEmitter(streams[streams.length - 1])
 }
@@ -24,7 +24,7 @@ function validateEventEmitter (stream) {
   return stream
 }
 
-function listenError (stream) {
+function handleError (stream) {
   return function (err) {
     stream.emit('error', err)
   }
