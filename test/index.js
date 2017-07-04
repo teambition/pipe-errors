@@ -1,22 +1,22 @@
 'use strict'
 
-var tman = require('tman')
-var assert = require('assert')
-var pipeErrors = require('../index.js')
-var stream = require('stream')
-var through = require('through2')
+const tman = require('tman')
+const assert = require('assert')
+const pipeErrors = require('../index.js')
+const stream = require('stream')
+const through = require('through2')
 
 function fakeReadStream (options) {
-  var readStream = new stream.Readable(options)
+  const readStream = new stream.Readable(options)
   readStream._read = function () {}
   return readStream
 }
 
 tman.suite('pipe-errors', function () {
   tman.it('pipeErrors(stream1, stream2, stream3)', function (done) {
-    var stream1 = fakeReadStream()
-    var stream2 = through()
-    var stream3 = through()
+    let stream1 = fakeReadStream()
+    let stream2 = through()
+    let stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors(stream1, stream2, stream3)
     stream3.on('error', function (err) {
@@ -27,9 +27,9 @@ tman.suite('pipe-errors', function () {
   })
 
   tman.it('pipeErrors([stream1, stream2, stream3])', function (done) {
-    var stream1 = fakeReadStream()
-    var stream2 = through()
-    var stream3 = through()
+    let stream1 = fakeReadStream()
+    let stream2 = through()
+    let stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors([stream1, stream2, stream3])
     stream3.on('error', function (err) {
@@ -40,9 +40,9 @@ tman.suite('pipe-errors', function () {
   })
 
   tman.it('pipeErrors composite', function (done) {
-    var stream1 = fakeReadStream()
-    var stream2 = through()
-    var stream3 = through()
+    let stream1 = fakeReadStream()
+    let stream2 = through()
+    let stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors(stream1, stream2)
     pipeErrors(stream2, stream3)
