@@ -14,9 +14,9 @@ function fakeReadStream (options) {
 
 tman.suite('pipe-errors', function () {
   tman.it('pipeErrors(stream1, stream2, stream3)', function (done) {
-    let stream1 = fakeReadStream()
-    let stream2 = through()
-    let stream3 = through()
+    const stream1 = fakeReadStream()
+    const stream2 = through()
+    const stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors(stream1, stream2, stream3)
     stream3.on('error', function (err) {
@@ -27,9 +27,9 @@ tman.suite('pipe-errors', function () {
   })
 
   tman.it('pipeErrors([stream1, stream2, stream3])', function (done) {
-    let stream1 = fakeReadStream()
-    let stream2 = through()
-    let stream3 = through()
+    const stream1 = fakeReadStream()
+    const stream2 = through()
+    const stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors([stream1, stream2, stream3])
     stream3.on('error', function (err) {
@@ -40,9 +40,9 @@ tman.suite('pipe-errors', function () {
   })
 
   tman.it('pipeErrors composite', function (done) {
-    let stream1 = fakeReadStream()
-    let stream2 = through()
-    let stream3 = through()
+    const stream1 = fakeReadStream()
+    const stream2 = through()
+    const stream3 = through()
     stream1.pipe(stream2).pipe(stream3)
     pipeErrors(stream1, stream2)
     pipeErrors(stream2, stream3)

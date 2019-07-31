@@ -4,8 +4,9 @@
   "authors": [
     "Yan Qing <admin@zensh.com>"
   ],
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:teambition/pipe-errors.git"
@@ -22,15 +23,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "standard": "^10.0.2",
-    "through2": "^2.0.3",
-    "tman": "1.6.9"
+    "standard": "^13.1.0",
+    "through2": "^3.0.1",
+    "tman": "1.9.0"
   },
   "scripts": {
     "test": "standard && tman"
   },
   "files": [
     "index.js",
+    "index.d.ts",
     "README.md"
   ]
 }
